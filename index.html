@@ -337,6 +337,82 @@
       border-top: 1px solid var(--border);
     }
 
+    /* WBC Roster */
+    .wbc-country {
+      margin-bottom: 1.5rem;
+    }
+
+    .wbc-country-header {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.6rem;
+      padding: 0.5rem 0.8rem;
+      background: var(--bg-card);
+      border-radius: 8px;
+      border-left: 4px solid var(--accent);
+    }
+
+    .wbc-country-header .flag {
+      font-size: 1.4rem;
+    }
+
+    .wbc-country-header h3 {
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .wbc-country-header .player-count {
+      margin-left: auto;
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      background: rgba(59,130,246,0.15);
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+    }
+
+    .wbc-players {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      padding-left: 1.2rem;
+    }
+
+    .wbc-player {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.25rem 0.6rem;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 0.82rem;
+    }
+
+    .wbc-player .pos {
+      color: var(--text-secondary);
+      font-size: 0.7rem;
+      font-weight: 600;
+    }
+
+    .wbc-player .name {
+      font-weight: 500;
+    }
+
+    .wbc-note {
+      margin-top: 1rem;
+      padding: 0.8rem 1rem;
+      background: rgba(234,179,8,0.08);
+      border: 1px solid rgba(234,179,8,0.2);
+      border-radius: 8px;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    .wbc-note strong {
+      color: var(--yellow);
+    }
+
     @media (max-width: 640px) {
       .hero h1 { font-size: 1.6rem; }
       .container { padding: 1.5rem 1rem; }
@@ -588,6 +664,223 @@
       </div>
     </section>
 
+    <!-- WBC Rosters -->
+    <section class="section">
+      <div class="section-header">
+        <span class="icon">&#127758;</span>
+        <h2>2026 WBC 各国の主要MLB選手</h2>
+      </div>
+
+      <div class="wbc-country">
+        <div class="wbc-country-header">
+          <span class="flag">&#127482;&#127480;</span>
+          <h3>USA（アメリカ）</h3>
+          <span class="player-count">23名</span>
+        </div>
+        <div class="wbc-players">
+          <span class="wbc-player"><span class="pos">OF</span><span class="name">Aaron Judge</span></span>
+          <span class="wbc-player"><span class="pos">INF</span><span class="name">Bobby Witt Jr.</span></span>
+          <span class="wbc-player"><span class="pos">INF</span><span class="name">Gunnar Henderson</span></span>
+          <span class="wbc-player"><span class="pos">LHP</span><span class="name">Tarik Skubal</span></span>
+          <span class="wbc-player"><span class="pos">RHP</span><span class="name">Paul Skenes</span></span>
+          <span class="wbc-player"><span class="pos">INF</span><span class="name">Alex Bregman</span></span>
+          <span class="wbc-player"><span class="pos">OF</span><span class="name">Corbin Carroll</span></span>
+          <span class="wbc-player"><span class="pos">OF</span><span class="name">Byron Buxton</span></span>
+          <span class="wbc-player"><span class="pos">OF</span><span class="name">Pete Crow-Armstrong</span></span>
+          <span class="wbc-player"><span class="pos">DH</span><span class="name">Kyle Schwarber</span></span>
+          <span class="wbc-player"><span class="pos">C</span><span class="name">Cal Raleigh</span></span>
+          <span class="wbc-player"><span class="pos">C</span><span class="name">Will Smith</span></span>
+          <span class="wbc-player"><span class="pos">RHP</span><span class="name">Logan Webb</span></span>
+          <span class="wbc-player"><span class="pos">LHP</span><span class="name">Clayton Kershaw</span></span>
+          <span class="wbc-player"><span class="pos">RHP</span><span class="name">Mason Miller</span></span>
+          <span class="wbc-player"><span class="pos">RHP</span><span class="name">Clay Holmes</span></span>
+          <span class="wbc-player"><span class="pos">RHP</span><span class="name">Griffin Jax</span></span>
+          <span class="wbc-player"><span class="pos">RHP</span><span class="name">Joe Ryan</span></span>
+          <span class="wbc-player"><span class="pos">INF</span><span class="name">Brice Turang</span></span>
+          <span class="wbc-player"><span class="pos">INF</span><span class="name">Ernie Clement</span></span>
+          <span class="wbc-player"><span class="pos">RHP</span><span class="name">Brad Keller</span></span>
+          <span class="wbc-player"><span class="pos">RHP</span><span class="name">Nolan McLean</span></span>
+          <span class="wbc-player"><span class="pos">LHP</span><span class="name">Gabe Speier</span></span>
+        </div>
+      </div>
+
+      <div class="wbc-country">
+        <div class="wbc-country-header">
+          <span class="flag">&#127471;&#127477;</span>
+          <h3>Japan（日本）</h3>
+          <span class="player-count">8名（MLB）</span>
+        </div>
+        <div class="wbc-players">
+          <span class="wbc-player"><span class="pos">TWP</span><span class="name">大谷翔平</span></span>
+          <span class="wbc-player"><span class="pos">RHP</span><span class="name">山本由伸</span></span>
+          <span class="wbc-player"><span class="pos">OF</span><span class="name">鈴木誠也</span></span>
+          <span class="wbc-player"><span class="pos">LHP</span><span class="name">菊池雄星</span></span>
+          <span class="wbc-player"><span class="pos">LHP</span><span class="name">松井裕樹</span></span>
+          <span class="wbc-player"><span class="pos">INF</span><span class="name">村上宗隆</span></span>
+          <span class="wbc-player"><span class="pos">INF</span><span class="name">岡本和真</span></span>
+          <span class="wbc-player"><span class="pos">RHP</span><span class="name">菅野智之</span></span>
+        </div>
+        <div class="wbc-note">
+          <strong>注目:</strong> 大谷翔平は打者専念で出場。投手としての登板はなし（Dave Roberts監督が発表）。
+        </div>
+      </div>
+
+      <div class="wbc-country">
+        <div class="wbc-country-header">
+          <span class="flag">&#127465;&#127476;</span>
+          <h3>Dominican Republic（ドミニカ共和国）</h3>
+          <span class="player-count">21名</span>
+        </div>
+        <div class="wbc-players">
+          <span class="wbc-player"><span class="pos">INF</span><span class="name">Vladimir Guerrero Jr.</span></span>
+          <span class="wbc-player"><span class="pos">OF</span><span class="name">Juan Soto</span></span>
+          <span class="wbc-player"><span class="pos">OF</span><span class="name">Fernando Tatis Jr.</span></span>
+          <span class="wbc-player"><span class="pos">OF</span><span class="name">Julio Rodr&iacute;guez</span></span>
+          <span class="wbc-player"><span class="pos">INF</span><span class="name">Ketel Marte</span></span>
+          <span class="wbc-player"><span class="pos">INF</span><span class="name">Oneil Cruz</span></span>
+          <span class="wbc-player"><span class="pos">RHP</span><span class="name">Sandy Alcantara</span></span>
+          <span class="wbc-player"><span class="pos">RHP</span><span class="name">Brayan Bello</span></span>
+          <span class="wbc-player"><span class="pos">RHP</span><span class="name">Luis Severino</span></span>
+          <span class="wbc-player"><span class="pos">LHP</span><span class="name">Cristopher S&aacute;nchez</span></span>
+          <span class="wbc-player"><span class="pos">RHP</span><span class="name">Camilo Doval</span></span>
+          <span class="wbc-player"><span class="pos">RHP</span><span class="name">Carlos Est&eacute;vez</span></span>
+          <span class="wbc-player"><span class="pos">RHP</span><span class="name">Seranthony Dom&iacute;nguez</span></span>
+          <span class="wbc-player"><span class="pos">C</span><span class="name">Yainer Diaz</span></span>
+          <span class="wbc-player"><span class="pos">INF</span><span class="name">Junior Caminero</span></span>
+          <span class="wbc-player"><span class="pos">INF</span><span class="name">Geraldo Perdomo</span></span>
+          <span class="wbc-player"><span class="pos">INF/OF</span><span class="name">Amed Rosario</span></span>
+          <span class="wbc-player"><span class="pos">INF</span><span class="name">Carlos Santana</span></span>
+          <span class="wbc-player"><span class="pos">LHP</span><span class="name">Wandy Peralta</span></span>
+          <span class="wbc-player"><span class="pos">RHP</span><span class="name">Dennis Santana</span></span>
+          <span class="wbc-player"><span class="pos">LHP</span><span class="name">Gregory Soto</span></span>
+        </div>
+      </div>
+
+      <div class="wbc-country">
+        <div class="wbc-country-header">
+          <span class="flag">&#127483;&#127466;</span>
+          <h3>Venezuela（ベネズエラ）</h3>
+          <span class="player-count">5名</span>
+        </div>
+        <div class="wbc-players">
+          <span class="wbc-player"><span class="pos">OF</span><span class="name">Ronald Acu&ntilde;a Jr.</span></span>
+          <span class="wbc-player"><span class="pos">C</span><span class="name">Salvador Perez</span></span>
+          <span class="wbc-player"><span class="pos">OF</span><span class="name">Jackson Chourio</span></span>
+          <span class="wbc-player"><span class="pos">INF</span><span class="name">Maikel Garcia</span></span>
+          <span class="wbc-player"><span class="pos">OF</span><span class="name">Wilyer Abreu</span></span>
+        </div>
+      </div>
+
+      <div class="wbc-country">
+        <div class="wbc-country-header">
+          <span class="flag">&#127477;&#127479;</span>
+          <h3>Puerto Rico（プエルトリコ）</h3>
+          <span class="player-count">3名</span>
+        </div>
+        <div class="wbc-players">
+          <span class="wbc-player"><span class="pos">INF</span><span class="name">Nolan Arenado</span></span>
+          <span class="wbc-player"><span class="pos">UTIL</span><span class="name">Willi Castro</span></span>
+          <span class="wbc-player"><span class="pos">INF</span><span class="name">Francisco Lindor</span></span>
+        </div>
+        <div class="wbc-note">
+          <strong>注目:</strong> Francisco Lindorは右肘のクリーンアップ手術により出場辞退。
+        </div>
+      </div>
+
+      <div class="wbc-country">
+        <div class="wbc-country-header">
+          <span class="flag">&#127474;&#127485;</span>
+          <h3>Mexico（メキシコ）</h3>
+          <span class="player-count">9名</span>
+        </div>
+        <div class="wbc-players">
+          <span class="wbc-player"><span class="pos">OF</span><span class="name">Randy Arozarena</span></span>
+          <span class="wbc-player"><span class="pos">OF</span><span class="name">Jarren Duran</span></span>
+          <span class="wbc-player"><span class="pos">INF</span><span class="name">Jonathan Aranda</span></span>
+          <span class="wbc-player"><span class="pos">C</span><span class="name">Alejandro Kirk</span></span>
+          <span class="wbc-player"><span class="pos">INF</span><span class="name">Joey Ortiz</span></span>
+          <span class="wbc-player"><span class="pos">OF</span><span class="name">Alek Thomas</span></span>
+          <span class="wbc-player"><span class="pos">INF</span><span class="name">Luis Ur&iacute;as</span></span>
+          <span class="wbc-player"><span class="pos">INF</span><span class="name">Ram&oacute;n Ur&iacute;as</span></span>
+          <span class="wbc-player"><span class="pos">RHP</span><span class="name">Taijuan Walker</span></span>
+        </div>
+      </div>
+
+      <div class="wbc-country">
+        <div class="wbc-country-header">
+          <span class="flag">&#127470;&#127481;</span>
+          <h3>Italy（イタリア）</h3>
+          <span class="player-count">2名</span>
+        </div>
+        <div class="wbc-players">
+          <span class="wbc-player"><span class="pos">INF</span><span class="name">Vinnie Pasquantino</span></span>
+          <span class="wbc-player"><span class="pos">C</span><span class="name">Kyle Teel</span></span>
+        </div>
+      </div>
+
+      <div class="wbc-country">
+        <div class="wbc-country-header">
+          <span class="flag">&#127470;&#127473;</span>
+          <h3>Israel（イスラエル）</h3>
+          <span class="player-count">3名</span>
+        </div>
+        <div class="wbc-players">
+          <span class="wbc-player"><span class="pos">OF</span><span class="name">Harrison Bader</span></span>
+          <span class="wbc-player"><span class="pos">RHP</span><span class="name">Dean Kremer</span></span>
+          <span class="wbc-player"><span class="pos">C</span><span class="name">Garrett Stubbs</span></span>
+        </div>
+      </div>
+
+      <div class="wbc-country">
+        <div class="wbc-country-header">
+          <span class="flag">&#127462;&#127482;</span>
+          <h3>Australia（オーストラリア）</h3>
+          <span class="player-count">2名</span>
+        </div>
+        <div class="wbc-players">
+          <span class="wbc-player"><span class="pos">INF</span><span class="name">Travis Bazzana</span></span>
+          <span class="wbc-player"><span class="pos">RHP</span><span class="name">Liam Hendriks</span></span>
+        </div>
+      </div>
+
+      <div class="wbc-country">
+        <div class="wbc-country-header">
+          <span class="flag">&#127475;&#127470;</span>
+          <h3>Nicaragua（ニカラグア）</h3>
+          <span class="player-count">1名</span>
+        </div>
+        <div class="wbc-players">
+          <span class="wbc-player"><span class="pos">INF</span><span class="name">Mark Vientos</span></span>
+        </div>
+      </div>
+
+      <div class="wbc-country">
+        <div class="wbc-country-header">
+          <span class="flag">&#127464;&#127476;</span>
+          <h3>Colombia（コロンビア）</h3>
+          <span class="player-count">1名</span>
+        </div>
+        <div class="wbc-players">
+          <span class="wbc-player"><span class="pos">LHP</span><span class="name">Jose Quintana</span></span>
+        </div>
+      </div>
+
+      <div class="wbc-country">
+        <div class="wbc-country-header">
+          <span class="flag">&#127464;&#127487;</span>
+          <h3>Czechia（チェコ）</h3>
+          <span class="player-count">1名</span>
+        </div>
+        <div class="wbc-players">
+          <span class="wbc-player"><span class="pos">INF</span><span class="name">Terrin Vavra</span></span>
+        </div>
+      </div>
+
+      <p style="margin-top: 1.5rem; font-size: 0.8rem; color: var(--text-secondary);">
+        ※ 上記はMLB.comが2026年2月1日時点で確認した各国連盟発表のMLB選手のみ。NPB・その他リーグ所属の選手は含まず。ロースターは怪我や可用性により変更の可能性あり。大会開幕は3月5日。
+      </p>
+    </section>
+
     <!-- Sources -->
     <section class="section">
       <div class="sources">
@@ -599,6 +892,7 @@
           <li><a href="https://www.nbcsports.com/mlb/news/mlb-free-agent-tracker-2025-26-latest-signings-top-players-and-biggest-offseason-deals" target="_blank" rel="noopener">NBC Sports</a></li>
           <li><a href="https://tokyo-ryman-note.com/2026mlb-offseasonplayermove/" target="_blank" rel="noopener">TOKYO リーマン NOTE</a></li>
           <li><a href="https://www.espn.com/mlb/story/_/id/47561030/2026-free-agency-mlb-30-teams-stock-watch-midwinter-progress-report" target="_blank" rel="noopener">ESPN 30球団レポート</a></li>
+          <li><a href="https://www.mlb.com/news/mlb-players-in-the-2026-world-baseball-classic" target="_blank" rel="noopener">MLB.com WBC選手一覧</a></li>
         </ul>
       </div>
     </section>
