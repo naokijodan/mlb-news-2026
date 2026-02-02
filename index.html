@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MLB 2025-26 オフシーズン ニュースまとめ</title>
+  <style>
+    :root {
+      --bg-primary: #0a0e1a;
+      --bg-secondary: #111827;
+      --bg-card: #1a2235;
+      --accent: #3b82f6;
+      --accent-light: #60a5fa;
+      --text-primary: #f1f5f9;
+      --text-secondary: #94a3b8;
+      --border: #2d3a52;
+      --red: #ef4444;
+      --green: #22c55e;
+      --yellow: #eab308;
+      --orange: #f97316;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #1e3a5f 0%, #0a1628 50%, #2a1a3e 100%);
+      padding: 3rem 1.5rem;
+      text-align: center;
+      border-bottom: 3px solid var(--accent);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 30% 50%, rgba(59,130,246,0.15) 0%, transparent 60%),
+                  radial-gradient(circle at 70% 50%, rgba(239,68,68,0.1) 0%, transparent 60%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(90deg, var(--accent-light), #a78bfa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero .subtitle {
+      color: var(--text-secondary);
+      font-size: 1rem;
+    }
+
+    .hero .date-badge {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.35rem 1rem;
+      background: rgba(59,130,246,0.2);
+      border: 1px solid rgba(59,130,246,0.4);
+      border-radius: 999px;
+      font-size: 0.85rem;
+      color: var(--accent-light);
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+
+    .section {
+      margin-bottom: 2.5rem;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 1.2rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .section-header .icon {
+      font-size: 1.4rem;
+    }
+
+    .section-header h2 {
+      font-size: 1.35rem;
+      font-weight: 700;
+    }
+
+    /* FA Contract Table */
+    .table-wrapper {
+      overflow-x: auto;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    thead {
+      background: var(--bg-card);
+    }
+
+    th {
+      padding: 0.75rem 1rem;
+      text-align: left;
+      font-weight: 600;
+      color: var(--text-secondary);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+    }
+
+    td {
+      padding: 0.7rem 1rem;
+      border-top: 1px solid var(--border);
+      white-space: nowrap;
+    }
+
+    tbody tr {
+      background: var(--bg-secondary);
+      transition: background 0.15s;
+    }
+
+    tbody tr:hover {
+      background: var(--bg-card);
+    }
+
+    .player-name {
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .team-badge {
+      display: inline-block;
+      padding: 0.15rem 0.55rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      background: rgba(59,130,246,0.15);
+      color: var(--accent-light);
+    }
+
+    .money {
+      color: var(--green);
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .highlight-row {
+      background: rgba(59,130,246,0.08);
+    }
+
+    /* Trade Cards */
+    .trade-list {
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    .trade-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.2rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      transition: border-color 0.15s;
+    }
+
+    .trade-card:hover {
+      border-color: var(--accent);
+    }
+
+    .trade-icon {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      background: rgba(249,115,22,0.15);
+      color: var(--orange);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .trade-detail h3 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .trade-detail p {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .trade-arrow {
+      color: var(--orange);
+      font-weight: 700;
+    }
+
+    /* Unsigned Players */
+    .unsigned-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--yellow);
+      border-radius: 8px;
+      padding: 1rem 1.2rem;
+    }
+
+    .unsigned-card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .unsigned-card p {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    /* News Items */
+    .news-list {
+      display: grid;
+      gap: 0.7rem;
+    }
+
+    .news-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.9rem 1.2rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+    }
+
+    .news-tag {
+      flex-shrink: 0;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+    }
+
+    .tag-injury { background: rgba(239,68,68,0.15); color: var(--red); }
+    .tag-event { background: rgba(59,130,246,0.15); color: var(--accent-light); }
+    .tag-schedule { background: rgba(34,197,94,0.15); color: var(--green); }
+    .tag-uniform { background: rgba(168,139,250,0.15); color: #a78bfa; }
+
+    .news-item p {
+      font-size: 0.9rem;
+    }
+
+    /* Sources */
+    .sources {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.2rem 1.5rem;
+    }
+
+    .sources h3 {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.8rem;
+    }
+
+    .sources ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .sources a {
+      display: inline-block;
+      padding: 0.3rem 0.7rem;
+      background: rgba(59,130,246,0.1);
+      border: 1px solid rgba(59,130,246,0.25);
+      border-radius: 6px;
+      color: var(--accent-light);
+      text-decoration: none;
+      font-size: 0.8rem;
+      transition: background 0.15s;
+    }
+
+    .sources a:hover {
+      background: rgba(59,130,246,0.25);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      color: var(--text-secondary);
+      font-size: 0.8rem;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 640px) {
+      .hero h1 { font-size: 1.6rem; }
+      .container { padding: 1.5rem 1rem; }
+      td, th { padding: 0.5rem 0.6rem; font-size: 0.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hero">
+    <div class="hero-content">
+      <h1><span>MLB 2025-26</span> オフシーズン</h1>
+      <p class="subtitle">契約・トレード・最新ニュースまとめ</p>
+      <div class="date-badge">2026年2月2日 更新</div>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <!-- FA Contract -->
+    <section class="section">
+      <div class="section-header">
+        <span class="icon">&#9998;</span>
+        <h2>主要FA契約</h2>
+      </div>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>選手</th>
+              <th>移籍先</th>
+              <th>契約内容</th>
+              <th>備考</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="highlight-row">
+              <td class="player-name">Kyle Tucker</td>
+              <td><span class="team-badge">ドジャース</span></td>
+              <td class="money">4年 / $2.4億</td>
+              <td>AAV $6,000万 = MLB最高額</td>
+            </tr>
+            <tr>
+              <td class="player-name">Cody Bellinger</td>
+              <td><span class="team-badge">ヤンキース</span></td>
+              <td class="money">5年 / $1.625億</td>
+              <td>オプトアウト付き</td>
+            </tr>
+            <tr class="highlight-row">
+              <td class="player-name">Alex Bregman</td>
+              <td><span class="team-badge">カブス</span></td>
+              <td class="money">5年 / AAV $3,500万</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="player-name">Bo Bichette</td>
+              <td><span class="team-badge">メッツ</span></td>
+              <td class="money">3年 / AAV $4,200万</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="player-name">Pete Alonso</td>
+              <td><span class="team-badge">オリオールズ</span></td>
+              <td class="money">5年</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="player-name">Josh Naylor</td>
+              <td><span class="team-badge">マリナーズ</span></td>
+              <td class="money">5年 / $9,250万</td>
+              <td>完全NTC付き</td>
+            </tr>
+            <tr class="highlight-row">
+              <td class="player-name">村上宗隆</td>
+              <td><span class="team-badge">ホワイトソックス</span></td>
+              <td class="money">2年 / $3,400万</td>
+              <td>NPBから移籍</td>
+            </tr>
+            <tr class="highlight-row">
+              <td class="player-name">岡本和真</td>
+              <td><span class="team-badge">ブルージェイズ</span></td>
+              <td class="money">4年</td>
+              <td>NPBから移籍</td>
+            </tr>
+            <tr>
+              <td class="player-name">J.T. Realmuto</td>
+              <td><span class="team-badge">フィリーズ</span></td>
+              <td class="money">3年</td>
+              <td>再契約</td>
+            </tr>
+            <tr>
+              <td class="player-name">Luis Arráez</td>
+              <td><span class="team-badge">ジャイアンツ</span></td>
+              <td class="money">1年 / $1,200万</td>
+              <td>3度の首位打者</td>
+            </tr>
+            <tr>
+              <td class="player-name">Eugenio Suárez</td>
+              <td><span class="team-badge">レッズ</span></td>
+              <td class="money">1年 / $1,500万</td>
+              <td>2027年相互オプション</td>
+            </tr>
+            <tr>
+              <td class="player-name">Kenley Jansen</td>
+              <td><span class="team-badge">タイガース</span></td>
+              <td class="money">—</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="player-name">Raisel Iglesias</td>
+              <td><span class="team-badge">ブレーブス</span></td>
+              <td class="money">1年 / $1,600万</td>
+              <td>再契約</td>
+            </tr>
+            <tr>
+              <td class="player-name">Seranthony Dominguez</td>
+              <td><span class="team-badge">ホワイトソックス</span></td>
+              <td class="money">2年 / $2,000万</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="player-name">Miguel Rojas</td>
+              <td><span class="team-badge">ドジャース</span></td>
+              <td class="money">1年 / $550万</td>
+              <td>最終シーズン</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Trades -->
+    <section class="section">
+      <div class="section-header">
+        <span class="icon">&#8644;</span>
+        <h2>主要トレード</h2>
+      </div>
+      <div class="trade-list">
+
+        <div class="trade-card">
+          <div class="trade-icon">&#8644;</div>
+          <div class="trade-detail">
+            <h3>MacKenzie Gore <span class="trade-arrow">&rarr;</span> レンジャーズ</h3>
+            <p>ナショナルズから移籍。見返りに2025年1巡目指名Gavin Fienら5選手をナショナルズが獲得。</p>
+          </div>
+        </div>
+
+        <div class="trade-card">
+          <div class="trade-icon">&#8644;</div>
+          <div class="trade-detail">
+            <h3>Sonny Gray <span class="trade-arrow">&rarr;</span> レッドソックス</h3>
+            <p>カージナルズから移籍。2026年$3,100万、2027年$1,000万の相互バイアウト。</p>
+          </div>
+        </div>
+
+        <div class="trade-card">
+          <div class="trade-icon">&#8644;</div>
+          <div class="trade-detail">
+            <h3>Marcus Semien &#8596; Brandon Nimmo</h3>
+            <p>メッツがSemienを獲得、レンジャーズがNimmoを獲得するスワップディール。</p>
+          </div>
+        </div>
+
+        <div class="trade-card">
+          <div class="trade-icon">&#8644;</div>
+          <div class="trade-detail">
+            <h3>Taylor Ward <span class="trade-arrow">&rarr;</span> オリオールズ / Grayson Rodriguez <span class="trade-arrow">&rarr;</span> エンゼルス</h3>
+            <p>オリオールズとエンゼルス間の主力トレード。</p>
+          </div>
+        </div>
+
+        <div class="trade-card">
+          <div class="trade-icon">&#8644;</div>
+          <div class="trade-detail">
+            <h3>Willson Contreras <span class="trade-arrow">&rarr;</span> レッドソックス</h3>
+            <p>カージナルズから$800万付きで移籍。カージナルズはRHP 3選手を獲得。</p>
+          </div>
+        </div>
+
+        <div class="trade-card">
+          <div class="trade-icon">&#8644;</div>
+          <div class="trade-detail">
+            <h3>Shane Baz <span class="trade-arrow">&rarr;</span> オリオールズ</h3>
+            <p>レイズから複数選手パッケージで移籍。</p>
+          </div>
+        </div>
+
+        <div class="trade-card">
+          <div class="trade-icon">&#8644;</div>
+          <div class="trade-detail">
+            <h3>Johan Oviedo <span class="trade-arrow">&rarr;</span> レッドソックス</h3>
+            <p>パイレーツから移籍。見返りにProspect Jhostynxon Garciaがパイレーツへ。</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Unsigned -->
+    <section class="section">
+      <div class="section-header">
+        <span class="icon">&#9888;</span>
+        <h2>未契約の注目選手</h2>
+      </div>
+      <div class="unsigned-card">
+        <h3>Framber Valdez</h3>
+        <p>今オフ市場に出た先発投手の中で最大の目玉。スプリングトレーニング開始直前の2月に入っても契約が決まっていない。複数球団が獲得に動いているとの報道あり。</p>
+      </div>
+    </section>
+
+    <!-- Other News -->
+    <section class="section">
+      <div class="section-header">
+        <span class="icon">&#9889;</span>
+        <h2>その他のニュース</h2>
+      </div>
+      <div class="news-list">
+
+        <div class="news-item">
+          <span class="news-tag tag-injury">故障</span>
+          <p><strong>Ha-Seong Kim</strong>（ブレーブス）が右中指腱断裂の手術を受けた。復帰時期は未定。</p>
+        </div>
+
+        <div class="news-item">
+          <span class="news-tag tag-event">WBC</span>
+          <p><strong>2026 ワールド・ベースボール・クラシック</strong>開催年。大谷翔平（日本）、Aaron Judge（米国）、Vladimir Guerrero Jr.（ドミニカ）らが参加予定。</p>
+        </div>
+
+        <div class="news-item">
+          <span class="news-tag tag-schedule">日程</span>
+          <p><strong>スプリングトレーニング</strong>：投手・捕手の報告日は2月10〜12日。</p>
+        </div>
+
+        <div class="news-item">
+          <span class="news-tag tag-schedule">日程</span>
+          <p><strong>開幕日は3月26日</strong>。パイレーツ（Skenes）vs メッツ（Soto）、ドジャース vs Dバックスのダブルヘッダー。</p>
+        </div>
+
+        <div class="news-item">
+          <span class="news-tag tag-event">放送</span>
+          <p><strong>MLB が NBC / Peacock に復帰</strong>。2026年からサンデーナイトベースボールなどを放送。</p>
+        </div>
+
+        <div class="news-item">
+          <span class="news-tag tag-uniform">ユニ</span>
+          <p><strong>マリナーズ</strong>が1946年シアトル・スティールヘッズにちなんだ新ユニフォームを発表。</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Sources -->
+    <section class="section">
+      <div class="sources">
+        <h3>ソース</h3>
+        <ul>
+          <li><a href="https://www.foxsports.com/stories/mlb/2026-mlb-free-agent-signing-trades-tracker" target="_blank" rel="noopener">FOX Sports</a></li>
+          <li><a href="https://www.espn.com/mlb/story/_/id/46845936/mlb-2025-26-free-agency-tracker-offseason-trades-moves" target="_blank" rel="noopener">ESPN</a></li>
+          <li><a href="https://www.mlb.com/news/important-dates-ahead-of-2026-mlb-season" target="_blank" rel="noopener">MLB.com</a></li>
+          <li><a href="https://www.nbcsports.com/mlb/news/mlb-free-agent-tracker-2025-26-latest-signings-top-players-and-biggest-offseason-deals" target="_blank" rel="noopener">NBC Sports</a></li>
+          <li><a href="https://tokyo-ryman-note.com/2026mlb-offseasonplayermove/" target="_blank" rel="noopener">TOKYO リーマン NOTE</a></li>
+          <li><a href="https://www.espn.com/mlb/story/_/id/47561030/2026-free-agency-mlb-30-teams-stock-watch-midwinter-progress-report" target="_blank" rel="noopener">ESPN 30球団レポート</a></li>
+        </ul>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    <p>MLB 2025-26 オフシーズンまとめ &mdash; 最終更新: 2026年2月2日</p>
+  </footer>
+
+</body>
+</html>
